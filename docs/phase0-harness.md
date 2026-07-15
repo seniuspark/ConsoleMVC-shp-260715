@@ -44,3 +44,9 @@ Project1(콘솔 실행 파일 프로젝트)과 소스를 공유하는 GoogleTest
 Phase 1부터는 이 테스트 프로젝트에 실제 Model 테스트를 추가하기만 하면 되므로,
 매 phase마다 새 프로젝트를 만들 필요 없이 동일한 하네스 위에서 Red → Green →
 Refactor를 반복한다.
+
+## 완료 확인 (Phase 5 재검증)
+
+✅ 완료. `Project1.slnx` 빌드 시 `Project1.exe`/`Project1Tests.exe` 모두
+생성되며, `Project1Tests.exe`가 25개 테스트(HarnessSanityTest 포함) 모두
+통과함을 재확인했다.

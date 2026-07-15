@@ -50,3 +50,10 @@
 Phase 2에서 정의할 View 인터페이스와 FakeView는 이 Model 타입(`Sample`)을
 데이터 전달 형태로 사용한다. Phase 3의 Controller는 `SampleRepository`를 멤버로
 가지고 View로부터 받은 입력을 여기 반영한다.
+
+## 완료 확인 (Phase 5 재검증)
+
+✅ 완료. `LayerBoundaryTest.ModelSourcesContainNoIostreamInclude`가
+`Model/Sample.h`, `Model/SampleRepository.h/.cpp`에 `<iostream>`/`std::cin`/
+`std::cout`/`std::cerr`가 없음을 자동으로 검증한다. Model은 Controller/View
+헤더를 include하지 않는다(역방향 의존 없음, 코드 리뷰로 확인).

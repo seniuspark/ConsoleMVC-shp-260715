@@ -56,3 +56,10 @@ Controller가 호출한 출력 내용을 기록/검증할 수 있게 한다.
 Phase 3의 Controller는 생성자/메서드에서 `ISampleView&`(또는 `shared_ptr`)를
 받아 사용하도록 설계한다. 테스트에서는 `FakeSampleView`를, 실행 파일에서는
 Phase 4의 `ConsoleSampleView`를 주입한다.
+
+## 완료 확인 (Phase 5 재검증)
+
+✅ 완료. `ISampleView.h`는 `Model/Sample.h`만 include하며 Controller를
+참조하지 않는다. Phase 5에서 Controller/View가 공유하는 메뉴 번호를
+`MenuOption` enum으로 이 인터페이스 헤더에 정의해, Controller의 switch 분기와
+View의 프롬프트 출력이 매직 넘버 대신 같은 상수를 참조하도록 리팩터링했다.

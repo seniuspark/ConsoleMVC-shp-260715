@@ -50,3 +50,10 @@
 Phase 4에서는 이 Controller를 그대로 재사용하고, `ISampleView` 구현체만
 `ConsoleSampleView`로 교체해 실제 콘솔 실행 파일에 연결한다. Controller/Model
 코드는 Phase 4에서 수정하지 않는 것이 원칙이다(연결만 수행).
+
+## 완료 확인 (Phase 5 재검증)
+
+✅ 완료. `LayerBoundaryTest.ControllerSourcesContainNoIostreamInclude`가
+`Controller/SampleController.h/.cpp`에 콘솔 입출력 코드가 없음을 자동으로
+검증한다. Phase 5에서 switch 분기의 매직 넘버(0/1/2)를 `MenuOption` enum
+참조로 리팩터링했으며, 6개 Controller 테스트는 변경 없이 계속 통과한다.

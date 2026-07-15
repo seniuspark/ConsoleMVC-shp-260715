@@ -57,3 +57,11 @@
 이 phase까지 끝나면 CLAUDE.md의 "최소 1개 흐름이 실제로 동작한다"는 완료 기준을
 충족한다. Phase 5에서는 이 구조가 우연이 아니라 규칙으로 지켜지는지(경계 위반이
 없는지)를 검증 테스트/스크립트로 못 박고 문서를 정리한다.
+
+## 완료 확인 (Phase 5 재검증)
+
+✅ 완료. `Project1.exe`를 수동으로 실행해 "1. 시료 등록 → 2. 목록 조회 → 0.
+종료" 흐름이 여전히 정상 동작함을 재확인했다. `LayerBoundaryTest.
+ViewSourcesContainNoSampleBusinessLogic` 휴리스틱 검사로 `ConsoleSampleView.cpp`에
+재고/수율 비교 등 비즈니스 판단 코드가 없음을 확인했다(완벽한 정적 검증은
+불가능하므로 코드 리뷰로 보완).

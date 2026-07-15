@@ -51,3 +51,34 @@ Phase 0 (하네스)
 - JSON 파일 영속성, 실시간 모니터링, 더미 데이터 생성, 주문 승인/생산 큐 계산의
   완전한 구현은 이 PoC의 범위가 아니다 (각각 `Json/`, `Monitor/`, `Dummy/`,
   `Main/`의 책임). 필요하면 Order 관련 메뉴는 스텁(미구현 안내 메시지)으로 남긴다.
+
+## PoC 완료 (Phase 0~5 전체 완료)
+
+Phase 0부터 Phase 5(계층 경계 검증 및 리팩터링)까지 모두 끝났다. 이 PoC는
+종료 상태다.
+
+- **테스트 현황**: `Project1Tests.exe` 기준 총 25개 테스트, 전부 통과
+  (`HarnessSanityTest` 1, `ModelTests` 6, `ViewTests`(FakeSampleView +
+  ConsoleSampleView) 7, `ControllerTests` 6, `ContainsAnyPatternHelperTest` 2,
+  `LayerBoundaryTest` 3). 빌드 경고/오류 0건.
+- **동작하는 최소 흐름**: `Project1.exe`에서 "1. 시료 등록 → 2. 목록 조회 →
+  0. 종료"가 실제 콘솔 입출력으로 동작한다(수동 스모크 확인).
+- **계층 경계 증명**:
+  - `LayerBoundaryTest.ControllerSourcesContainNoIostreamInclude` /
+    `ModelSourcesContainNoIostreamInclude` — Controller/Model 소스에
+    `<iostream>`, `std::cin`, `std::cout`, `std::cerr`가 없음을 자동 테스트로
+    고정했다.
+  - `LayerBoundaryTest.ViewSourcesContainNoSampleBusinessLogic` — View가
+    재고/수율 비교 연산을 하지 않는지 문자열 휴리스틱으로 검사한다(완벽한
+    정적 검증은 불가능하므로 코드 리뷰로 보완, 주석에 명시).
+  - Controller는 `ISampleView&` 추상 인터페이스만 참조하고, 콘솔 전용 구현인
+    `ConsoleSampleView`는 `main()`에서만 조립된다(의존성 역전).
+- **리팩터링**: Controller/View 양쪽에 흩어져 있던 메뉴 번호 매직 넘버(0/1/2)를
+  `ISampleView.h`의 `MenuOption` enum class로 통합했다.
+- **CLAUDE.md 목표 충족 여부**: "Model/Controller/View 계층 분리",
+  "최소 1개 흐름의 실제 동작", "계층 경계의 테스트 증명" 3가지 목표를 모두
+  충족했다고 판단한다.
+- **다음 단계(이 PoC 밖)**: 이 구조(폴더 분리, `ISampleView` 기반 의존성 역전,
+  `FakeSampleView` 테스트 패턴)를 사람이 읽고 `Main/`에 재구현하거나 파일을
+  복사해 옮긴다. Order/생산큐/승인/JSON 영속성/모니터링/더미데이터는 각각
+  해당 PoC 또는 `Main/`의 몫이다.
