@@ -80,6 +80,7 @@
     <ClCompile Include="ViewTests\FakeSampleViewTest.cpp" />
     <ClCompile Include="ViewTests\ConsoleSampleViewTest.cpp" />
     <ClCompile Include="ControllerTests\SampleControllerTest.cpp" />
+    <ClCompile Include="BoundaryTests\LayerBoundaryTest.cpp" />
     <ClCompile Include="..\Project1\Model\SampleRepository.cpp" />
     <ClCompile Include="..\Project1\Controller\SampleController.cpp" />
     <ClCompile Include="..\Project1\View\ConsoleSampleView.cpp" />
