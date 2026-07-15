@@ -80,6 +80,9 @@
     <ClCompile Include="ViewTests\FakeSampleViewTest.cpp" />
     <ClCompile Include="..\Project1\Model\SampleRepository.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="View\FakeSampleView.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />

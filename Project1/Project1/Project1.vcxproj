@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="Model\Sample.h" />
     <ClInclude Include="Model\SampleRepository.h" />
+    <ClInclude Include="View\ISampleView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
