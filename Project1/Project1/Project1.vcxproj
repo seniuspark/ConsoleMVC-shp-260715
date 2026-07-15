@@ -151,11 +151,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model\SampleRepository.cpp" />
     <ClCompile Include="Controller\SampleController.cpp" />
+    <ClCompile Include="View\ConsoleSampleView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\Sample.h" />
     <ClInclude Include="Model\SampleRepository.h" />
     <ClInclude Include="View\ISampleView.h" />
+    <ClInclude Include="View\ConsoleSampleView.h" />
     <ClInclude Include="Controller\SampleController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

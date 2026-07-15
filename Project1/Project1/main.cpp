@@ -1,8 +1,16 @@
-// Entry point placeholder.
-// Phase 4 will wire up ConsoleView/Controller here. For Phase 0~1 this only
-// needs to build successfully so the solution produces both Project1 and
-// Project1Tests binaries.
+#include <iostream>
+
+#include "Controller/SampleController.h"
+#include "Model/SampleRepository.h"
+#include "View/ConsoleSampleView.h"
+
 int main()
 {
+    SampleRepository repository;
+    ConsoleSampleView view(std::cin, std::cout);
+    SampleController controller(repository, view);
+
+    controller.Run();
+
     return 0;
 }
