@@ -2,7 +2,10 @@
 
 int ConsoleSampleView::ReadMenuChoice()
 {
-    m_out << "\n메뉴를 선택하세요 (1: 시료 등록, 2: 목록 조회, 0: 종료): ";
+    m_out << "\n메뉴를 선택하세요 ("
+          << static_cast<int>(MenuOption::RegisterSample) << ": 시료 등록, "
+          << static_cast<int>(MenuOption::ListSamples) << ": 목록 조회, "
+          << static_cast<int>(MenuOption::Exit) << ": 종료): ";
 
     int choice = 0;
     m_in >> choice;

@@ -4,15 +4,15 @@ void SampleController::RunOnce()
 {
     int choice = m_view.ReadMenuChoice();
 
-    switch (choice)
+    switch (static_cast<MenuOption>(choice))
     {
-    case 0:
+    case MenuOption::Exit:
         m_running = false;
         break;
-    case 1:
+    case MenuOption::RegisterSample:
         RegisterSample();
         break;
-    case 2:
+    case MenuOption::ListSamples:
         ListSamples();
         break;
     default:
