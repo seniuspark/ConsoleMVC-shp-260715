@@ -78,10 +78,13 @@
     <ClCompile Include="ModelTests\SampleTest.cpp" />
     <ClCompile Include="ModelTests\SampleRepositoryTest.cpp" />
     <ClCompile Include="ViewTests\FakeSampleViewTest.cpp" />
+    <ClCompile Include="ControllerTests\SampleControllerTest.cpp" />
     <ClCompile Include="..\Project1\Model\SampleRepository.cpp" />
+    <ClCompile Include="..\Project1\Controller\SampleController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="View\FakeSampleView.h" />
+    <ClInclude Include="..\Project1\Controller\SampleController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
